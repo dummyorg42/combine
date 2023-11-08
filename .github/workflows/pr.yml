@@ -4,7 +4,7 @@ on:
       - opened
 jobs:
   run_if:
-    if: github.event.pull_request.labels == [ 'bundle' ]
+    if: contains(github.event.pull_request.labels.*.name, 'bundle')
     runs-on: ubuntu-latest
     steps:
-      - run: echo "The head of this PR starts with 'releases/'"
+      - run: echo "This is a bundle"
