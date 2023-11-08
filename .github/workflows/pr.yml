@@ -2,11 +2,9 @@ on:
   pull_request:
     types:
       - opened
-
 jobs:
-  if_merged:
+  run_if:
     if: github.event.pull_request.labels == [ 'bundle' ]
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo This is a bundle
+      - run: echo "The head of this PR starts with 'releases/'"
